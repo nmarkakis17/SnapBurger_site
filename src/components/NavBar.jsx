@@ -19,8 +19,8 @@ export default function NavBar(){
           <img
               src="/images/burger-logo.png"
               alt="SnapBurger logo"
-              width={220}              // intrinsic size (px) – helps prevent layout shift
-              height={220}
+              width={75}              // intrinsic size (px) – helps prevent layout shift
+              height={75}
               style={{ width: 220, height: 220, objectFit: 'contain' }} // CSS control
           />
         </Link>
