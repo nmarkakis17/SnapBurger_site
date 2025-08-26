@@ -18,8 +18,8 @@ export default function NavBar(){
           <img
               src="/images/burger-logo.png"
               alt="SnapBurger logo"
-              width={24}              // intrinsic size (px) – helps prevent layout shift
-              height={24}
+              width={50}              // intrinsic size (px) – helps prevent layout shift
+              height={50}
              />
         </Link>
         <nav style={{display:'flex', gap:8, flexWrap:'wrap'}}>
