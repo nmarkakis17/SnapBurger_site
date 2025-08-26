@@ -22,7 +22,7 @@ export default function Home() {
     animate(setPosts, 0, posts)
   }, [])
 
-  // Confetti/SnapCoin rain
+  // SnapCoin rain
   const fireCoins = () => {
     const root = heroRef.current
     if (!root) return
@@ -39,7 +39,7 @@ export default function Home() {
 
   return (
     <>
-      {/* Page-local CSS (no extra files or deps) */}
+      {/* Page-local CSS */}
       <style>{`
         :root {
           --cyan:#06b6d4;
@@ -49,16 +49,42 @@ export default function Home() {
           --slate:#0f172a;
           --grid: rgba(255,255,255,0.06);
         }
+
+        /* Base page background (dark canvas) */
+        html, body { background: #0b1220; }
+
+        /* Full-page blue→orange haze */
+        .global-haze{
+          position: fixed;
+          inset: 0;
+          z-index: -1;
+          background:
+            radial-gradient(1200px 800px at -10% -10%, rgba(34,211,238,.28), transparent 60%),
+            radial-gradient(1000px 700px at 110% -10%, rgba(14,165,233,.24), transparent 60%),
+            radial-gradient(1200px 700px at 50% 120%, rgba(249,115,22,.22), transparent 62%),
+            linear-gradient(135deg, rgba(14,165,233,.18), rgba(249,115,22,.18)),
+            #0b1220;
+          background-attachment: fixed, fixed, fixed, fixed, fixed;
+          filter: saturate(1.05);
+          pointer-events: none;
+        }
+        .global-haze::after{
+          content:"";
+          position:absolute; inset:0;
+          background:
+            linear-gradient(transparent 95%, rgba(255,255,255,.06) 95%) 0 0/ 100% 28px,
+            linear-gradient(90deg, transparent 95%, rgba(255,255,255,.06) 95%) 0 0/ 28px 100%;
+          mix-blend-mode: screen;
+          opacity: .25;
+          pointer-events: none;
+        }
+
         .hero {
           position: relative;
           overflow: hidden;
           border-radius: 18px;
           padding: clamp(20px, 6vw, 48px);
-          background:
-            radial-gradient(1200px 600px at 10% -10%, rgba(34,211,238,.14), transparent 60%),
-            radial-gradient(900px 600px at 110% 10%, rgba(14,165,233,.18), transparent 60%),
-            radial-gradient(500px 400px at 50% 120%, rgba(249,115,22,.16), transparent 60%),
-            #0b1220;
+          background: transparent; /* let the page haze show through */
           color: white;
           box-shadow: 0 30px 60px rgba(2,6,23,.45) inset, 0 10px 30px rgba(2,6,23,.3);
           isolation: isolate;
@@ -166,6 +192,9 @@ export default function Home() {
         }
       `}</style>
 
+      {/* Full-page haze background */}
+      <div className="global-haze" aria-hidden />
+
       {/* HERO */}
       <section className="hero grid-overlay" ref={heroRef}>
         <div className="orbs" aria-hidden>
@@ -242,7 +271,7 @@ export default function Home() {
       <section className="section">
         <h2 className="h2">Theo-meter</h2>
         <div className="meterWrap">
-          <div className="pulse" style={{ ['--h']: hype }} aria-label="Theo-meter display">
+          <div className="pulse" style={{ '--h': hype }} aria-label="Theo-meter display">
             {hype}
           </div>
           <input
