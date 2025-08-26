@@ -14,7 +14,7 @@ export default function Merch(){
       <div style={{display:'grid', gap:12, gridTemplateColumns:'repeat(auto-fit, minmax(400px, 1fr))'}}>
         {items.map(it => (
           <div key={it.name} style={{border:'1px solid #e2e8f0', borderRadius:16, padding:'1rem', display:'grid', gap:8}}>
-            <div style={{height:400, background:'#f1f5f9', borderRadius:12, overflow:'hidden', display:'grid', placeItems:'center'}}>
+            <div style={{height:400, width:400, background:'#f1f5f9', borderRadius:12, overflow:'hidden', display:'grid', placeItems:'center'}}>
               <img src={it.img} alt={it.alt} style={{width:'100%', height:'100%', objectFit:'cover'}} />
             </div>
             <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', gap:8}}>
