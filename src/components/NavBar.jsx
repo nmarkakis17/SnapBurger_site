@@ -20,7 +20,7 @@ export default function NavBar(){
               alt="SnapBurger logo"
               width={24}              // intrinsic size (px) – helps prevent layout shift
               height={24}
-              style={{ width: 220, height: 220, objectFit: 'contain' }} // CSS control
+              style={{ width: 24, height: 24, objectFit: 'contain' }} // CSS control
           />
         </Link>
         <nav style={{display:'flex', gap:8, flexWrap:'wrap'}}>
