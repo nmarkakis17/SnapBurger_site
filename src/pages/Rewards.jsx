@@ -46,7 +46,7 @@ export default function Rewards(){
 
       <div style={{display:'grid', gap:16, gridTemplateColumns:'repeat(auto-fit, minmax(240px, 1fr))'}}>
         <figure style={{margin:0}}>
-          <img src="/images/theo-app.png" alt="Theo app shows BurgerBytes and SnapCoin alert" style={{width:'100%', height:'auto', borderRadius:16}} />
+          <img src="/images/theoapp.png" alt="Theo app shows BurgerBytes and SnapCoin alert" style={{width:'100%', height:'auto', borderRadius:16}} />
           <figcaption style={{fontSize:14, color:'#64748b', marginTop:8}}>Theo notifies you when your post earns BurgerBytes.</figcaption>
         </figure>
         <figure style={{margin:0}}>
