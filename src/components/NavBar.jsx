@@ -17,7 +17,7 @@ export default function NavBar(){
         <Link to="/" style={{display:'flex', alignItems:'center', gap:8, textDecoration:'none'}}>
           <div style={{width:36, height:36, borderRadius:12, background:'#f97316', display:'grid', placeItems:'center', color:'white', fontWeight:800}}>SB</div>
           <img
-              src="/images/snapburger-logo.png"
+              src="/images/burger-logo.png"
               alt="SnapBurger logo"
               width={220}              // intrinsic size (px) – helps prevent layout shift
               height={220}
