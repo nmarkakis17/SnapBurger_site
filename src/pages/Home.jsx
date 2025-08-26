@@ -4,7 +4,7 @@ export default function Home(){
   return (
     <section style={{display:'grid', gap:'1.25rem'}}>
       <div style={{padding:'1.25rem', borderRadius:16, background:'linear-gradient(135deg, #0ea5e9 0%, #f97316 100%)', color:'white', textAlign:'center'}}>
-        <img src="/images/snapburger-logo.png" alt="SnapBurger logo" style={{maxWidth:220, width:'100%', height:'auto', margin:'0 auto 12px', display:'block', filter:'drop-shadow(0 4px 24px rgba(0,0,0,0.25))'}} />
+        <img src="/images/snapburger-logo.png" alt="SnapBurger logo" style={{maxWidth:100, width:'100%', height:100, margin:'0 auto 12px', display:'block', filter:'drop-shadow(0 4px 24px rgba(0,0,0,0.25))'}} />
         <p style={{margin:0, fontSize:'1.1rem'}}>Where technology meets dining. Order at kiosks, earn SnapCoins, and see yourself on the SnapBoard.</p>
       </div>
       <div style={{display:'grid', gap:12, gridTemplateColumns:'repeat(auto-fit, minmax(220px, 1fr))'}}>
