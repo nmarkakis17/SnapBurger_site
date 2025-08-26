@@ -16,7 +16,7 @@ export default function NavBar(){
       <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', gap:'1rem', padding:'0.75rem 1rem', maxWidth:1200, margin:'0 auto'}}>
         <Link to="/" style={{display:'flex', alignItems:'center', gap:8, textDecoration:'none'}}>
           <div style={{width:36, height:36, borderRadius:12, background:'#f97316', display:'grid', placeItems:'center', color:'white', fontWeight:800}}>SB</div>
-          <span style={{fontSize:'1.15rem', fontWeight:800, color:'#0f172a'}}>SnapBurger</span>
+          <img src="/images/burger-logo.png" alt="SnapBurger logo" />
         </Link>
         <nav style={{display:'flex', gap:8, flexWrap:'wrap'}}>
           <NavLink to="/" style={linkStyle} end>Home</NavLink>
