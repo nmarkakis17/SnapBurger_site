@@ -3,7 +3,8 @@ import React from 'react'
 const items = [
   {name:'SnapBurger Tee', price:19.99, img:'/images/snapburger-tee.png', alt:'SnapBurger t-shirt with Theo logo'},
   {name:'Theo Keychain', price:6.99, img:'/images/theo-keychain.png', alt:'Theo character acrylic keychain'},
-  {name:'Theo Sticker Set', price:4.99, img:'/images/snapburger-stickers.png', alt:'Theo sticker (placeholder image)'},
+  {name:'SnapBurger Sticker Set', price:4.99, img:'/images/snapburger-stickers.png', alt:'SnapBurger Sticker Set'},
+  {name:'SnapBurger Reusable Bag', price:2.99, img:'/images/snapburger-bag.png', alt:'SnapBurger Reuseable Bag'},
 ]
 
 export default function Merch(){
