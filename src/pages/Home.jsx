@@ -39,7 +39,6 @@ export default function Home() {
 
   return (
     <>
-      {/* Page-local CSS */}
       <style>{`
         :root {
           --cyan:#06b6d4;
@@ -50,30 +49,31 @@ export default function Home() {
           --grid: rgba(255,255,255,0.06);
         }
 
-        /* Base page background (dark canvas) */
-        html, body { background: #0b1220; }
+        /* Canvas setup */
+        html { background:#0b1220; }
+        body, #root { background: transparent; }
 
-       /* Full-page blue→orange haze */
-          .global-haze{
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            pointer-events: none;
-            background:
-              /* cyan glow TL */
-              radial-gradient(1100px 700px at 10% -10%, rgba(34,211,238,.34), transparent 60%),
-              /* blue glow TR */
-              radial-gradient(900px 600px at 95% 0%, rgba(14,165,233,.30), transparent 60%),
-              /* ORANGE glow center-right (moved up so it’s visible immediately) */
-              radial-gradient(1100px 700px at 65% 65%, rgba(249,115,22,.35), transparent 62%),
-              /* secondary warm glow bottom-left */
-              radial-gradient(900px 600px at 0% 100%, rgba(251,146,60,.28), transparent 60%),
-              /* overall wash in the button’s direction */
-              linear-gradient(135deg, rgba(14,165,233,.20), rgba(249,115,22,.24) 60%),
-              #0b1220;
-            background-attachment: fixed, fixed, fixed, fixed, fixed, fixed;
-            filter: saturate(1.1);
-          }
+        /* Full-page blue→orange haze (now above the page background) */
+        .global-haze{
+          position: fixed;
+          inset: 0;
+          z-index: 0;               /* was -1 (hidden) */
+          pointer-events: none;
+          background:
+            /* cyan glow TL */
+            radial-gradient(1100px 700px at 10% -10%, rgba(34,211,238,.34), transparent 60%),
+            /* blue glow TR */
+            radial-gradient(900px 600px at 95% 0%, rgba(14,165,233,.30), transparent 60%),
+            /* ORANGE glow mid-right (visible on load) */
+            radial-gradient(1100px 700px at 65% 55%, rgba(249,115,22,.40), transparent 62%),
+            /* secondary warm glow BL */
+            radial-gradient(900px 600px at 0% 100%, rgba(251,146,60,.28), transparent 60%),
+            /* gentle wash in button direction */
+            linear-gradient(135deg, rgba(14,165,233,.18), rgba(249,115,22,.22) 60%),
+            #0b1220;
+          background-attachment: fixed, fixed, fixed, fixed, fixed, fixed;
+          filter: saturate(1.08);
+        }
         .global-haze::after{
           content:"";
           position:absolute; inset:0;
@@ -81,16 +81,18 @@ export default function Home() {
             linear-gradient(transparent 95%, rgba(255,255,255,.06) 95%) 0 0/ 100% 28px,
             linear-gradient(90deg, transparent 95%, rgba(255,255,255,.06) 95%) 0 0/ 28px 100%;
           mix-blend-mode: screen;
-          opacity: .25;
-          pointer-events: none;
+          opacity: .22;
         }
+
+        /* All page content sits above the haze */
+        .page { position: relative; z-index: 1; }
 
         .hero {
           position: relative;
           overflow: hidden;
           border-radius: 18px;
           padding: clamp(20px, 6vw, 48px);
-          background: transparent; /* let the page haze show through */
+          background: transparent; /* let haze show through */
           color: white;
           box-shadow: 0 30px 60px rgba(2,6,23,.45) inset, 0 10px 30px rgba(2,6,23,.3);
           isolation: isolate;
@@ -185,120 +187,119 @@ export default function Home() {
         /* Coins (confetti) */
         .coin {
           position:absolute; top:-40px; width:14px; height:14px; border-radius:50%;
-          background: radial-gradient(circle at 30% 30%, #fff, #f9a23a 40%, #f97316 70%); 
+          background: radial-gradient(circle at 30% 30%, #fff, #f9a23a 40%, #f97316 70%);
           box-shadow: 0 0 12px rgba(249,115,22,.6);
           animation: drop 1.2s var(--delay) ease-in forwards, spin 1.2s var(--delay) linear;
           will-change: transform, opacity;
         }
-        @keyframes drop {
-          to { transform: translateY(85vh); opacity: .2 }
-        }
-        @keyframes spin {
-          to { transform: translateY(85vh) rotate(var(--rx)) }
-        }
+        @keyframes drop { to { transform: translateY(85vh); opacity: .2 } }
+        @keyframes spin { to { transform: translateY(85vh) rotate(var(--rx)) } }
       `}</style>
 
-      {/* Full-page haze background */}
+      {/* Haze behind everything */}
       <div className="global-haze" aria-hidden />
 
-      {/* HERO */}
-      <section className="hero grid-overlay" ref={heroRef}>
-        <div className="orbs" aria-hidden>
-          {Array.from({ length: 18 }).map((_, i) => (
-            <i key={i} style={{
-              left: `${(i * 53) % 100}%`,
-              bottom: `${(i * 37) % 100}%`,
-              animationDelay: `${(i % 7) * 0.6}s`,
-              opacity: 0.45 + (i % 5) * 0.08
-            }} />
-          ))}
-        </div>
+      {/* All content lives above haze */}
+      <div className="page">
+        {/* HERO */}
+        <section className="hero grid-overlay" ref={heroRef}>
+          <div className="orbs" aria-hidden>
+            {Array.from({ length: 18 }).map((_, i) => (
+              <i key={i} style={{
+                left: `${(i * 53) % 100}%`,
+                bottom: `${(i * 37) % 100}%`,
+                animationDelay: `${(i % 7) * 0.6}s`,
+                opacity: 0.45 + (i % 5) * 0.08
+              }} />
+            ))}
+          </div>
 
-        <img className="logo" src="/images/snapburger-logo.png" alt="SnapBurger logo" />
-        <h1 className="title">Tech + Taste, <span style={{color:'#22d3ee'}}>supercharged</span>.</h1>
-        <p className="subtitle">
-          Order at smart kiosks, earn <span className="accent">SnapCoins</span>, trigger the <span className="accent">Theo-meter</span>,
-          and see your moment on the <span className="accent">SnapBoard</span>.
-        </p>
+          <img className="logo" src="/images/snapburger-logo.png" alt="SnapBurger logo" />
+          <h1 className="title">Tech + Taste, <span style={{color:'#22d3ee'}}>supercharged</span>.</h1>
+          <p className="subtitle">
+            Order at smart kiosks, earn <span className="accent">SnapCoins</span>, trigger the <span className="accent">Theo-meter</span>,
+            and see your moment on the <span className="accent">SnapBoard</span>.
+          </p>
 
-        <div className="ctaRow">
-          <button className="btn btn-primary" onClick={fireCoins}>Order Now</button>
-          <a className="btn" href="/rewards">Earn SnapCoins</a>
-          <a className="btn" href="/snapboard">See SnapBoard</a>
-        </div>
+          <div className="ctaRow">
+            <button className="btn btn-primary" onClick={fireCoins}>Order Now</button>
+            <a className="btn" href="/rewards">Earn SnapCoins</a>
+            <a className="btn" href="/snapboard">See SnapBoard</a>
+          </div>
 
-        <div className="stats">
-          <div className="pill">
-            <span className="badge">Today</span>
-            <span className="statNum">{coins.toLocaleString()} SnapCoins minted</span>
+          <div className="stats">
+            <div className="pill">
+              <span className="badge">Today</span>
+              <span className="statNum">{coins.toLocaleString()} SnapCoins minted</span>
+            </div>
+            <div className="pill">
+              <span className="badge">Live</span>
+              <span className="statNum">{posts.toLocaleString()} Snap & Share posts</span>
+            </div>
           </div>
-          <div className="pill">
-            <span className="badge">Live</span>
-            <span className="statNum">{posts.toLocaleString()} Snap & Share posts</span>
-          </div>
-        </div>
 
-        <div className="marquee" role="marquee" aria-label="Live tags">
-          <div className="track">
-            &nbsp;#SnapBurger&nbsp;•&nbsp;#BurgerBytes&nbsp;•&nbsp;#TheoMeter&nbsp;•&nbsp;#SnapCoins&nbsp;•&nbsp;
-            #SnapBoard&nbsp;•&nbsp;#SnapBurger&nbsp;•&nbsp;#BurgerBytes&nbsp;•&nbsp;#TheoMeter&nbsp;•&nbsp;#SnapCoins&nbsp;•&nbsp;
+          <div className="marquee" role="marquee" aria-label="Live tags">
+            <div className="track">
+              &nbsp;#SnapBurger&nbsp;•&nbsp;#BurgerBytes&nbsp;•&nbsp;#TheoMeter&nbsp;•&nbsp;#SnapCoins&nbsp;•&nbsp;
+              #SnapBoard&nbsp;•&nbsp;#SnapBurger&nbsp;•&nbsp;#BurgerBytes&nbsp;•&nbsp;#TheoMeter&nbsp;•&nbsp;#SnapCoins&nbsp;•&nbsp;
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* HOW IT WORKS */}
-      <section className="section">
-        <h2 className="h2">How it works</h2>
-        <div className="cards">
-          <div className="card">
-            <span className="badge">1</span>
-            <h3>Meet Theo at the door</h3>
-            <p>Our AI host greets you, routes lines, and keeps the vibe high.</p>
+        {/* HOW IT WORKS */}
+        <section className="section">
+          <h2 className="h2">How it works</h2>
+          <div className="cards">
+            <div className="card">
+              <span className="badge">1</span>
+              <h3>Meet Theo at the door</h3>
+              <p>Our AI host greets you, routes lines, and keeps the vibe high.</p>
+            </div>
+            <div className="card">
+              <span className="badge">2</span>
+              <h3>Order fast at kiosks</h3>
+              <p>Personalized upsell, allergy flags, and real-time prep timing.</p>
+            </div>
+            <div className="card">
+              <span className="badge">3</span>
+              <h3>Snap & Share</h3>
+              <p>Post with your code to earn <b>BurgerBytes</b> and convert to physical <b>SnapCoins</b>.</p>
+            </div>
+            <div className="card">
+              <span className="badge">4</span>
+              <h3>Make the SnapBoard</h3>
+              <p>Top posts get featured on our in-store wall. Fame + fries.</p>
+            </div>
           </div>
-          <div className="card">
-            <span className="badge">2</span>
-            <h3>Order fast at kiosks</h3>
-            <p>Personalized upsell, allergy flags, and real-time prep timing.</p>
-          </div>
-          <div className="card">
-            <span className="badge">3</span>
-            <h3>Snap & Share</h3>
-            <p>Post with your code to earn <b>BurgerBytes</b> and convert to physical <b>SnapCoins</b>.</p>
-          </div>
-          <div className="card">
-            <span className="badge">4</span>
-            <h3>Make the SnapBoard</h3>
-            <p>Top posts get featured on our in-store wall. Fame + fries.</p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* THEO-METER */}
-      <section className="section">
-        <h2 className="h2">Theo-meter</h2>
-        <div className="meterWrap">
-          <div className="pulse" style={{ '--h': hype }} aria-label="Theo-meter display">
-            {hype}
+        {/* THEO-METER */}
+        <section className="section">
+          <h2 className="h2">Theo-meter</h2>
+          <div className="meterWrap">
+            <div className="pulse" style={{ '--h': hype }} aria-label="Theo-meter display">
+              {hype}
+            </div>
+            <input
+              className="meter"
+              type="range"
+              min="0" max="100" value={hype}
+              onChange={(e) => setHype(parseInt(e.target.value))}
+            />
+            <div style={{color:'#475569'}}>Drag to set the hype. When it spikes, Theo celebrates.</div>
           </div>
-          <input
-            className="meter"
-            type="range"
-            min="0" max="100" value={hype}
-            onChange={(e) => setHype(parseInt(e.target.value))}
-          />
-          <div style={{color:'#475569'}}>Drag to set the hype. When it spikes, Theo celebrates.</div>
-        </div>
-      </section>
+        </section>
 
-      {/* GALLERY */}
-      <section className="section">
-        <h2 className="h2">In action</h2>
-        <div className="gallery">
-          <img src="/images/theoapp.png" alt="Theo app shows BurgerBytes and SnapCoin alert" />
-          <img src="/images/snapcoins.png" alt="Physical SnapCoins" />
-          <img src="/images/snapburger-logo.png" alt="SnapBurger neon logo" style={{objectFit:'contain', background:'#0b1220'}}/>
-        </div>
-      </section>
+        {/* GALLERY */}
+        <section className="section">
+          <h2 className="h2">In action</h2>
+          <div className="gallery">
+            <img src="/images/theo-app.png" alt="Theo app shows BurgerBytes and SnapCoin alert" />
+            <img src="/images/snapcoins.png" alt="Physical SnapCoins" />
+            <img src="/images/snapburger-logo.png" alt="SnapBurger neon logo" style={{objectFit:'contain', background:'#0b1220'}}/>
+          </div>
+        </section>
+      </div>
     </>
   )
 }
