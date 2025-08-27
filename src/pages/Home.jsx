@@ -35,6 +35,18 @@ export default function Home() {
       root.appendChild(s)
       s.addEventListener('animationend', () => s.remove())
     }
+    
+        const [isCelebrating, setIsCelebrating] = useState(false)
+    // Trigger once when the slider hits 100
+    useEffect(() => {
+      if (hype >= 100) {
+        setIsCelebrating(true)
+        fireCoins() // rain coins in the hero (optional)
+        const t = setTimeout(() => setIsCelebrating(false), 2200)
+        return () => clearTimeout(t)
+      }
+    }, [hype])
+
   }
 
   return (
@@ -170,23 +182,51 @@ export default function Home() {
         .card h3 { margin:10px 0 6px 0 }
         .badge { font-size:12px; font-weight:800; color:#0ea5e9; background:#e0f2fe; padding:4px 8px; border-radius:999px }
 
-        /* Theo-meter */
-        .meterWrap { margin-top: 26px; display:grid; gap:12px; align-items:center; justify-items:center }
-        .pulse {
-          --h: 68;
-          width: 120px; height:120px; border-radius:50%;
-          display:grid; place-items:center; color:#0f172a; font-weight:900;
-          background: radial-gradient(circle at 50% 50%, rgba(14,165,233,.25), rgba(14,165,233,.05) 60%, transparent 62%),
-                      white;
-          border: 2px solid #bae6fd;
-          box-shadow:
-            0 0 calc(2px + var(--h) * .2px) rgba(14,165,233,.45),
-            0 0 calc(8px + var(--h) * .4px) rgba(6,182,212,.35),
-            0 0 calc(14px + var(--h) * .6px) rgba(249,115,22,.35) inset;
-          transition: box-shadow .2s ease, transform .2s ease;
-          transform: scale(calc(0.98 + var(--h)/600));
-        }
-        .meter { width: min(620px, 90%); accent-color: #0ea5e9 }
+              /* Theo-meter */
+      .meterWrap { margin-top: 26px; display:grid; gap:12px; align-items:center; justify-items:center }
+      .pulse {
+        position: relative;          /* NEW */
+        overflow: hidden;            /* NEW */
+        --h: 68;
+        width: 120px; height:120px; border-radius:50%;
+        display:grid; place-items:center; color:#0f172a; font-weight:900;
+        background: radial-gradient(circle at 50% 50%, rgba(14,165,233,.25), rgba(14,165,233,.05) 60%, transparent 62%),
+                    white;
+        border: 2px solid #bae6fd;
+        box-shadow:
+          0 0 calc(2px + var(--h) * .2px) rgba(14,165,233,.45),
+          0 0 calc(8px + var(--h) * .4px) rgba(6,182,212,.35),
+          0 0 calc(14px + var(--h) * .6px) rgba(249,115,22,.35) inset;
+        transition: box-shadow .2s ease, transform .2s ease;
+        transform: scale(calc(0.98 + var(--h)/600));
+      }
+      
+      /* Extra glow + ripple when celebrating */
+      .pulse.is-celebrating {
+        box-shadow:
+          0 0 12px rgba(14,165,233,.55),
+          0 0 26px rgba(249,115,22,.45),
+          0 0 calc(14px + var(--h) * .6px) rgba(249,115,22,.45) inset;
+        transform: scale(1.05);
+      }
+      .pulse.is-celebrating::after{
+        content:"";
+        position:absolute; inset:-6px; border-radius:50%;
+        border:3px solid rgba(249,115,22,.55);
+        animation: ring 1.2s ease-out 2;
+      }
+      
+      @keyframes ring { from { transform: scale(.6); opacity:1 } to { transform: scale(1.2); opacity:0 } }
+      @keyframes pop  { 0%{ transform: scale(.2) rotate(-6deg); opacity:0 } 60%{ transform: scale(1.1) rotate(0) ; opacity:1 } 100%{ transform: scale(1) } }
+      
+      /* Theo image inside the circle */
+      .theo-pop{
+        position:absolute; inset:10%;
+        width:80%; height:80%;
+        object-fit:contain;
+        animation: pop .6s both;
+        filter: drop-shadow(0 6px 18px rgba(14,165,233,.35));
+      }
 
          /* Gallery */
           .gallery { display:grid; gap:12px; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); margin-top:20px }
@@ -291,23 +331,33 @@ export default function Home() {
           </div>
         </section>
 
-        {/* THEO-METER */}
-        <section className="section">
-          <h2 className="h2">Theo-meter</h2>
-          <div className="meterWrap">
-            <div className="pulse" style={{ '--h': hype }} aria-label="Theo-meter display">
-              {hype}
-            </div>
-            <input
-              className="meter"
-              type="range"
-              min="0" max="100" value={hype}
-              onChange={(e) => setHype(parseInt(e.target.value))}
-            />
-            {/* Same style as "How it works" */}
-            <h2 className="h2">Drag to set the hype. When it spikes, Theo celebrates.</h2>
-          </div> {/* <-- this was missing */}
-        </section>
+            {/* THEO-METER */}
+            <section className="section">
+              <h2 className="h2">Theo-meter</h2>
+              <div className="meterWrap">
+                <div
+                  className={`pulse ${isCelebrating ? 'is-celebrating' : ''}`}
+                  style={{ '--h': hype }}
+                  aria-label="Theo-meter display"
+                >
+                  {isCelebrating ? (
+                    <img className="theo-pop" src="/images/theo-hero.png" alt="Theo holding a SnapCoin" />
+                  ) : (
+                    hype
+                  )}
+                </div>
+            
+                <input
+                  className="meter"
+                  type="range"
+                  min="0" max="100" value={hype}
+                  onChange={(e) => setHype(parseInt(e.target.value))}
+                />
+            
+                {/* same style as your section headings */}
+                <h2 className="h2">Drag to set the hype. When it spikes, Theo celebrates.</h2>
+              </div>
+            </section>
         
 
         {/* GALLERY */}
