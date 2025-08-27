@@ -5,6 +5,7 @@ export default function Home() {
   const [posts, setPosts] = useState(312)
   const [hype, setHype] = useState(68)
   const heroRef = useRef(null)
+  const [isCelebrating, setIsCelebrating] = useState(false)
 
   // Animate counters on mount
   useEffect(() => {
@@ -35,18 +36,15 @@ export default function Home() {
       root.appendChild(s)
       s.addEventListener('animationend', () => s.remove())
     }
-    
-        const [isCelebrating, setIsCelebrating] = useState(false)
-    // Trigger once when the slider hits 100
-    useEffect(() => {
-      if (hype >= 100) {
-        setIsCelebrating(true)
-        fireCoins() // rain coins in the hero (optional)
-        const t = setTimeout(() => setIsCelebrating(false), 2200)
-        return () => clearTimeout(t)
       }
-    }, [hype])
-
+useEffect(() => {
+  if (hype === 100) {          // fire only at 100
+    setIsCelebrating(true)
+    fireCoins()
+    const t = setTimeout(() => setIsCelebrating(false), 2200)
+    return () => clearTimeout(t)
+  }
+}, [hype])
   }
 
   return (
