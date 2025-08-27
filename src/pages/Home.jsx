@@ -225,7 +225,7 @@ export default function Home() {
              <button className="btn btn-primary" onClick={fireCoins}>CLICK ME</button>
            </div>
           <img className="logo" src="/images/snapburger-logo.png" alt="SnapBurger logo" />
-          <h1 className="title">Tech + Taste, <span style={{color:'#22d3ee'}}>supercharged</span>.</h1>
+          <h1 className="title">High-Tech + Great Taste = <span style={{color:'#22d3ee'}}>Supercharged Experience</span>.</h1>
           <p className="subtitle">
             Order at smart kiosks, earn <span className="accent">SnapCoins</span>, trigger the <span className="accent">Theo-meter</span>,
             and see your moment on the <span className="accent">SnapBoard</span>.
