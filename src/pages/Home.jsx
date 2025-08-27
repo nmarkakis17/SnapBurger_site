@@ -248,7 +248,7 @@ export default function Home() {
 
         {/* HOW IT WORKS */}
         <section className="section">
-          <h2 className="h2">How it works</h2>
+          <h2 className="h2">How it works<span style={{color:'#22d3ee'}}>supercharged</span></h2>
           <div className="cards">
             <div className="card">
               <span className="badge">1</span>
