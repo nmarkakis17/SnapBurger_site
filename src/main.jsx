@@ -8,6 +8,7 @@ import Rewards from './pages/Rewards.jsx'
 import Merch from './pages/Merch.jsx'
 import SnapBoard from './pages/SnapBoard.jsx'
 import About from './pages/About.jsx'
+import MeetTheo from './pages/MeetTheo.jsx'   // <-- add this
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       { path: '/merch', element: <Merch /> },
       { path: '/snapboard', element: <SnapBoard /> },
       { path: '/about', element: <About /> },
+      { path: '/theo', element: <MeetTheo /> }, // <-- add this
     ],
   },
 ])
