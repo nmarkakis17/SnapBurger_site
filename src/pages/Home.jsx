@@ -309,21 +309,25 @@ useEffect(() => {
               <span className="badge">1</span>
               <h3>Meet Theo at the door</h3>
               <p>Our AI host greets you, routes lines, and keeps the vibe high.</p>
+              <img src="/images/theo-greet.png" alt="Theo greets customers at the door" />
             </div>
             <div className="card">
               <span className="badge">2</span>
               <h3>Order fast at kiosks</h3>
               <p>Personalized upsell, allergy flags, and real-time prep timing.</p>
+              <img src="/images/kiosk-snapboard.png" alt="Kiosk and SnapBoard" />
             </div>
             <div className="card">
               <span className="badge">3</span>
               <h3>Snap & Share</h3>
               <p>Post with your code to earn <b>BurgerBytes</b> and convert to physical <b>SnapCoins</b>.</p>
+              <img src="/images/theoapp.png" alt="Theo app shows BurgerBytes and SnapCoin alert" />
             </div>
             <div className="card">
               <span className="badge">4</span>
               <h3>Make the SnapBoard</h3>
               <p>Top posts get featured on our in-store wall. Fame + fries.</p>
+              <img src="/images/snapboard.png" alt="SnapBoard" />
             </div>
           </div>
         </section>
