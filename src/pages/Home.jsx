@@ -171,11 +171,20 @@ useEffect(() => {
         color: transparent;
         text-shadow: none; /* gradients look cleaner without the glow */
          }
-            .cards > .card{
-      display: flex;
-      flex-direction: column;
-      min-height: var(--card-min-h);
-    }
+        .cards{
+          display:grid; gap:16px;
+          grid-template-columns: repeat(4, 1fr);    /* desktop */
+        }
+        
+        @media (max-width: 1200px){
+          .cards{ grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 900px){
+          .cards{ grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 560px){
+          .cards{ grid-template-columns: 1fr; }
+        }
         .card {
           background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:16px;
           transition: transform .18s ease, box-shadow .18s ease;
