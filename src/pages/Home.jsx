@@ -151,7 +151,15 @@ export default function Home() {
 
         /* Feature cards */
         .section { max-width:1200px; margin:30px auto 0; padding: 0 4px }
-        .h2 { font-size: clamp(22px, 3.5vw, 30px); margin: 0 0 12px 0; color:#0f172a }
+        .h2 {
+        font-size: clamp(22px, 3.5vw, 30px);
+        margin: 0 0 12px 0;
+        background: linear-gradient(135deg, var(--blue), var(--orange));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: none; /* gradients look cleaner without the glow */
+         }
         .cards { display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) }
         .card {
           background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:16px;
@@ -248,7 +256,7 @@ export default function Home() {
 
         {/* HOW IT WORKS */}
         <section className="section">
-          <h2 className="h2">How it works<span style={{color:'#22d3ee'}}>supercharged</span></h2>
+          <h2 className="h2">How it works</h2>
           <div className="cards">
             <div className="card">
               <span className="badge">1</span>
