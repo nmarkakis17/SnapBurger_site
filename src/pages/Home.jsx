@@ -56,6 +56,8 @@ useEffect(() => {
           --orange:#f97316;
           --slate:#0f172a;
           --grid: rgba(255,255,255,0.06);
+          --step-img-h: clamp(180px, 28vw, 280px);   /* image tile height */
+          --card-min-h: clamp(320px, 44vw, 540px);   /* overall card height */
         }
 
         /* Canvas setup */
@@ -169,7 +171,11 @@ useEffect(() => {
         color: transparent;
         text-shadow: none; /* gradients look cleaner without the glow */
          }
-        .cards { display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) }
+            .cards > .card{
+      display: flex;
+      flex-direction: column;
+      min-height: var(--card-min-h);
+    }
         .card {
           background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:16px;
           transition: transform .18s ease, box-shadow .18s ease;
@@ -181,17 +187,17 @@ useEffect(() => {
       
           /* Step images under cards */
           
-        .step-img{
-          width:100%;
-          height:170px;           /* uniform tile height */
-          object-fit:cover;     /* set to 'cover' if you prefer crop fill */
-          background:#0b1220;     /* brand-friendly backdrop */
-          border:1px solid #e2e8f0;
-          border-radius:12px;
-          padding:8px;            /* breathing room inside the frame */
-          box-sizing:border-box;
-          margin-top:10px;
-        }
+.step-img{
+  width: 100%;
+  height: var(--step-img-h);   /* was 170px */
+  object-fit: contain;         /* switch to 'cover' if you prefer edge-to-edge (with crop) */
+  background: #0b1220;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-top: auto;            /* keep image anchored to the bottom of the card */
+}
               /* Theo-meter */
       .meterWrap { margin-top: 26px; display:grid; gap:12px; align-items:center; justify-items:center }
       .pulse {
