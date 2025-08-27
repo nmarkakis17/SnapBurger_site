@@ -54,7 +54,7 @@ export default function NavBar(){
           <img
             src="/images/burger-logo.png"
             alt="SnapBurger logo"
-            style={{ width:36, height:36, borderRadius:12 }}
+            style={{ width:50, height:50, borderRadius:12 }}
           />
           {/* new duotone wordmark */}
           <img
