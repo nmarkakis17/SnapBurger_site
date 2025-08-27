@@ -298,7 +298,7 @@ useEffect(() => {
           <div className="ctaRow">
              <button className="btn btn-primary" onClick={fireCoins}>CLICK ME</button>
            </div>
-          <img className="logo" src="/images/snapburger-logo.png" alt="SnapBurger logo" />
+          <img className="logo" src="/images/theo.png" alt="SnapBurger logo" />
           <h1 className="title">High-Tech + Great Taste = <span style={{color:'#22d3ee'}}>Supercharged Experience</span>.</h1>
           <p className="subtitle">
             Order at smart kiosks, earn <span className="accent">SnapCoins</span>, trigger the <span className="accent">Theo-meter</span>,
@@ -393,7 +393,7 @@ useEffect(() => {
                   aria-label="Theo-meter display"
                 >
                   {isCelebrating ? (
-                    <img className="theo-pop" src="/images/theo-hero.png" alt="Theo holding a SnapCoin" />
+                    <img className="theo-pop" src="/images/theo-wave.png" alt="Theo holding a SnapCoin" />
                   ) : (
                     hype
                   )}
