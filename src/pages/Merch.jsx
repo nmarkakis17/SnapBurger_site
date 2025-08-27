@@ -16,10 +16,9 @@ export default function Merch(){
       <div style={{display:'grid', gap:12, gridTemplateColumns:'repeat(auto-fit, minmax(400px, 1fr))'}}>
         {items.map(it => (
           <div key={it.name} style={{border:'1px solid #e2e8f0', borderRadius:16, padding:'1rem', display:'grid', gap:8}}>
-            {/* White image box with name caption inside */}
+            {/* White image box */}
             <div
               style={{
-                position:'relative',
                 width:'100%',
                 maxWidth:400,
                 aspectRatio:'1 / 1',
@@ -28,8 +27,7 @@ export default function Merch(){
                 borderRadius:12,
                 display:'grid',
                 placeItems:'center',
-                padding:8,
-                overflow:'hidden'
+                padding:8
               }}
             >
               <img
@@ -37,37 +35,35 @@ export default function Merch(){
                 alt={it.alt}
                 loading="lazy"
                 decoding="async"
-                style={{
-                  maxWidth:'100%',
-                  maxHeight:'100%',
-                  width:'auto',
-                  height:'auto',
-                  display:'block',
-                  objectFit:'contain',
-                  objectPosition:'center'
-                }}
+                style={{maxWidth:'100%', maxHeight:'100%', width:'auto', height:'auto', objectFit:'contain', display:'block'}}
               />
-              {/* Caption inside the white box */}
-              <div
-                style={{
-                  position:'absolute',
-                  left:8, right:8, bottom:8,
-                  textAlign:'center',
-                  color: BRAND_BLUE,
-                  fontWeight:900,
-                  lineHeight:1.2
-                }}
-              >
-                {it.name}
-              </div>
             </div>
 
-            {/* Price row (name removed so it's only inside the box) */}
-            <div style={{display:'flex', alignItems:'center', justifyContent:'flex-end'}}>
-              <div style={{fontWeight:800}}>${it.price.toFixed(2)}</div>
+            {/* Add a couple spaces between pic and name */}
+            <div style={{height:12}} />
+
+            {/* Name (brand blue) */}
+            <div style={{textAlign:'center', color:BRAND_BLUE, fontWeight:900}}>
+              {it.name}
             </div>
 
-            <button style={{padding:'0.5rem 0.75rem', borderRadius:10, border:'1px solid #0ea5e9', background:'white', cursor:'pointer'}}>Add to cart</button>
+            {/* Price under the name */}
+            <div style={{textAlign:'center', fontWeight:800, marginTop:4}}>
+              ${it.price.toFixed(2)}
+            </div>
+
+            <button
+              style={{
+                marginTop:8,
+                padding:'0.5rem 0.75rem',
+                borderRadius:10,
+                border:'1px solid #0ea5e9',
+                background:'white',
+                cursor:'pointer'
+              }}
+            >
+              Add to cart
+            </button>
           </div>
         ))}
       </div>
