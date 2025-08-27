@@ -184,7 +184,7 @@ useEffect(() => {
         .step-img{
           width:100%;
           height:170px;           /* uniform tile height */
-          object-fit:contain;     /* set to 'cover' if you prefer crop fill */
+          object-fit:cover;     /* set to 'cover' if you prefer crop fill */
           background:#0b1220;     /* brand-friendly backdrop */
           border:1px solid #e2e8f0;
           border-radius:12px;
