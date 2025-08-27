@@ -364,7 +364,7 @@ export default function Home() {
         <section className="section">
           <h2 className="h2">In action</h2>
           <div className="gallery">
-            <img src="/images/theo-app.png" alt="Theo app shows BurgerBytes and SnapCoin alert" />
+            <img src="/images/theoapp.png" alt="Theo app shows BurgerBytes and SnapCoin alert" />
             <img src="/images/snapcoins.png" alt="Physical SnapCoins" />
             <img src="/images/snapburger-logo.png" alt="SnapBurger neon logo" style={{objectFit:'contain', background:'#0b1220'}}/>
           </div>
