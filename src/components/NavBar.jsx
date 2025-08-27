@@ -50,7 +50,7 @@ export default function NavBar(){
 
       <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', gap:'1rem', padding:'0.75rem 1rem', maxWidth:1200, margin:'0 auto'}}>
         <Link to="/" style={{display:'flex', alignItems:'center', gap:8, textDecoration:'none'}}>
-          <img src="/images/burger-logo.png" alt="SnapBurger logo"/>
+          <img src="/images/burger-logo.png", height: 200, width: 200, alt="SnapBurger logo"/>
           <span style={{fontSize:'1.15rem', fontWeight:800, color:'#0f172a'}}>SnapBurger</span>
         </Link>
 
