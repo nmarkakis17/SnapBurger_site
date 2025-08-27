@@ -7,7 +7,7 @@ export default function NavBar(){
       {/* Nav styles */}
       <style>{`
         .navlink {
-          background-position: 100% 50%; 
+          background-position: 50% 50%; 
           display:inline-block;
           padding: 0.5rem 0.85rem;
           border-radius: 999px;
