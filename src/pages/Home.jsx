@@ -45,7 +45,6 @@ useEffect(() => {
     return () => clearTimeout(t)
   }
 }, [hype])
-  }
 
   return (
     <>
