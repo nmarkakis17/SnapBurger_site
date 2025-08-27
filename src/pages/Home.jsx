@@ -230,9 +230,9 @@ export default function Home() {
           </p>
 
           <div className="ctaRow">
-            <button className="btn btn-primary" onClick={fireCoins}>Order Now</button>
-            <a className="btn" href="/rewards">Earn SnapCoins</a>
-            <a className="btn" href="/snapboard">See SnapBoard</a>
+            <button className="btn btn-primary" onClick={fireCoins}>Fire Coins</button>
+            <a className="btn btn-primary" href="/rewards">Earn SnapCoins</a>
+            <a className="btn btn-primary" href="/snapboard">See SnapBoard</a>
           </div>
 
           <div className="stats">
