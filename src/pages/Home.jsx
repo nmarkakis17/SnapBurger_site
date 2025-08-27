@@ -178,7 +178,20 @@ useEffect(() => {
         .card:hover { transform: translateY(-4px) rotateX(2deg) rotateY(-2deg); box-shadow: 0 18px 40px rgba(2,6,23,.12) }
         .card h3 { margin:10px 0 6px 0 }
         .badge { font-size:12px; font-weight:800; color:#0ea5e9; background:#e0f2fe; padding:4px 8px; border-radius:999px }
-
+      
+          /* Step images under cards */
+          
+        .step-img{
+          width:100%;
+          height:170px;           /* uniform tile height */
+          object-fit:contain;     /* set to 'cover' if you prefer crop fill */
+          background:#0b1220;     /* brand-friendly backdrop */
+          border:1px solid #e2e8f0;
+          border-radius:12px;
+          padding:8px;            /* breathing room inside the frame */
+          box-sizing:border-box;
+          margin-top:10px;
+        }
               /* Theo-meter */
       .meterWrap { margin-top: 26px; display:grid; gap:12px; align-items:center; justify-items:center }
       .pulse {
@@ -302,35 +315,58 @@ useEffect(() => {
         </section>
 
         {/* HOW IT WORKS */}
-        <section className="section">
-          <h2 className="h2">How it works</h2>
-          <div className="cards">
-            <div className="card">
-              <span className="badge">1</span>
-              <h3>Meet Theo at the door</h3>
-              <p>Our AI host greets you, routes lines, and keeps the vibe high.</p>
-              <img src="/images/theo-greet.png" alt="Theo greets customers at the door" />
-            </div>
-            <div className="card">
-              <span className="badge">2</span>
-              <h3>Order fast at kiosks</h3>
-              <p>Personalized upsell, allergy flags, and real-time prep timing.</p>
-              <img src="/images/kiosk-snapboard.png" alt="Kiosk and SnapBoard" />
-            </div>
-            <div className="card">
-              <span className="badge">3</span>
-              <h3>Snap & Share</h3>
-              <p>Post with your code to earn <b>BurgerBytes</b> and convert to physical <b>SnapCoins</b>.</p>
-              <img src="/images/theoapp.png" alt="Theo app shows BurgerBytes and SnapCoin alert" />
-            </div>
-            <div className="card">
-              <span className="badge">4</span>
-              <h3>Make the SnapBoard</h3>
-              <p>Top posts get featured on our in-store wall. Fame + fries.</p>
-              <img src="/images/snapboard.png" alt="SnapBoard" />
-            </div>
-          </div>
-        </section>
+<section className="section">
+  <h2 className="h2">How it works</h2>
+  <div className="cards">
+    <div className="card">
+      <span className="badge">1</span>
+      <h3>Meet Theo at the door</h3>
+      <p>Our AI host greets you, routes lines, and keeps the vibe high.</p>
+      <img
+        className="step-img"
+        src="/images/theo-greet.png"   /* <-- replace filename */
+        alt="Guest being greeted by Theo"
+        loading="lazy"
+      />
+    </div>
+
+    <div className="card">
+      <span className="badge">2</span>
+      <h3>Order fast at kiosks</h3>
+      <p>Personalized upsell, allergy flags, and real-time prep timing.</p>
+      <img
+        className="step-img"
+        src="/images/kiosk-snapboard.png"   /* <-- replace filename */
+        alt="Ordering at a smart kiosk"
+        loading="lazy"
+      />
+    </div>
+
+    <div className="card">
+      <span className="badge">3</span>
+      <h3>Snap &amp; Share</h3>
+      <p>Post with your code to earn <b>BurgerBytes</b> and convert to physical <b>SnapCoins</b>.</p>
+      <img
+        className="step-img"
+        src="/images/theoapp.png"   /* <-- replace filename */
+        alt="Customer posting to social with code"
+        loading="lazy"
+      />
+    </div>
+
+    <div className="card">
+      <span className="badge">4</span>
+      <h3>Make the SnapBoard</h3>
+      <p>Top posts get featured on our in-store wall. Fame + fries.</p>
+      <img
+        className="step-img"
+        src="/images/snapboard.png"   /* <-- replace filename */
+        alt="SnapBoard wall featuring top posts"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>
 
             {/* THEO-METER */}
             <section className="section">
