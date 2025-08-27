@@ -17,7 +17,7 @@ export default function Rewards(){
         }}
       >
         <h2 style={{margin:0, color:BRAND_BLUE}}>BurgerBytes → SnapCoins</h2>
-        <p style={{margin:0, color:#fff}}>
+        <p style={{margin:0}}>
           Earn <strong>BurgerBytes</strong> from purchases and social sharing. Convert BurgerBytes into physical
           <strong> SnapCoins</strong> you can spend on food, merch, or weekly events.
         </p>
