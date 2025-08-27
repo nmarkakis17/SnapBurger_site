@@ -7,6 +7,7 @@ export default function NavBar(){
       {/* Nav styles */}
       <style>{`
         .navlink {
+          background-position: 100% 50%; 
           display:inline-block;
           padding: 0.5rem 0.85rem;
           border-radius: 999px;
@@ -17,9 +18,13 @@ export default function NavBar(){
           border: none;
 
           /* Gradient pill like your Meet Theo button */
-          background: linear-gradient(135deg, #0ea5e9, #f97316);
-          background-size: 200% 200%;
-          background-position: 0% 50%;
+          background: linear-gradient(
+          135deg,
+          #0ea5e9 0%,
+          #37bee9 12%,
+          #ff9c3a 40%,
+          #f97316 100%
+        );
 
           /* Depth + motion */
           box-shadow: 0 2px 0 rgba(2,6,23,.06), 0 10px 20px rgba(14,165,233,.20);
@@ -34,7 +39,7 @@ export default function NavBar(){
           opacity: 1;
           transform: translateY(-1px);
           box-shadow: 0 8px 22px rgba(14,165,233,.28);
-          background-position: 100% 50%; /* gentle gradient sweep */
+          background-position: 0% 50%; /* gentle gradient sweep */
         }
         .navlink.active {
           opacity: 1;
