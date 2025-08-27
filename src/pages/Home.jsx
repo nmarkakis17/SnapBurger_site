@@ -188,9 +188,18 @@ export default function Home() {
         }
         .meter { width: min(620px, 90%); accent-color: #0ea5e9 }
 
-        /* Gallery */
-        .gallery { display:grid; gap:12px; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); margin-top:20px }
-        .gallery img { width:100%; height:260px; object-fit:cover; border-radius:16px; border:1px solid #e2e8f0 }
+         /* Gallery */
+          .gallery { display:grid; gap:12px; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); margin-top:20px }
+          .gallery img{
+            width:100%;
+            height:260px;                 /* keep consistent card height */
+            object-fit:contain;           /* <-- was cover */
+            background:#0b1220;           /* subtle dark canvas behind letterboxing */
+            padding:8px;                  /* breathing room inside the frame */
+            box-sizing:border-box;
+            border-radius:16px;
+            border:1px solid #e2e8f0;
+          }
 
         /* Coins (confetti) */
         .coin {
