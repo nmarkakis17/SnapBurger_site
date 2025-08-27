@@ -416,7 +416,7 @@ useEffect(() => {
         <section className="section">
           <h2 className="h2">In action</h2>
           <div className="gallery">
-            <img src="/images/TheoWaiter(2).png" alt="Theo app shows BurgerBytes and SnapCoin alert" />
+            <img src="/images/theowaiter.png" alt="Theo waiter device" />
             <img src="/images/snapcoins.png" alt="Physical SnapCoins" />
             <img src="/images/snapburger-logo.png" alt="SnapBurger neon logo" style={{objectFit:'contain', background:'#0b1220'}}/>
           </div>
