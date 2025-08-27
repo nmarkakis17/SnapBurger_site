@@ -222,7 +222,7 @@ export default function Home() {
             ))}
           </div>
           <div className="ctaRow">
-             <button className="btn btn-primary" onClick={fireCoins}>Fire Coins</button>
+             <button className="btn btn-primary" onClick={fireCoins}>CLICK ME</button>
            </div>
           <img className="logo" src="/images/snapburger-logo.png" alt="SnapBurger logo" />
           <h1 className="title">Tech + Taste, <span style={{color:'#22d3ee'}}>supercharged</span>.</h1>
