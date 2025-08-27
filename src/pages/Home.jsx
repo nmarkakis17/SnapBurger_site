@@ -295,8 +295,7 @@ export default function Home() {
               min="0" max="100" value={hype}
               onChange={(e) => setHype(parseInt(e.target.value))}
             />
-            <div style={{color:'#475569'}}>Drag to set the hype. When it spikes, Theo celebrates.</div>
-          </div>
+            <h2 className="h2">Drag to set the hype. When it spikes, Theo celebrates.</h2>
         </section>
 
         {/* GALLERY */}
