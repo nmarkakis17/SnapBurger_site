@@ -53,21 +53,27 @@ export default function Home() {
         /* Base page background (dark canvas) */
         html, body { background: #0b1220; }
 
-        /* Full-page blue→orange haze */
-        .global-haze{
-          position: fixed;
-          inset: 0;
-          z-index: -1;
-          background:
-            radial-gradient(1200px 800px at -10% -10%, rgba(34,211,238,.28), transparent 60%),
-            radial-gradient(1000px 700px at 110% -10%, rgba(14,165,233,.24), transparent 60%),
-            radial-gradient(1200px 700px at 50% 120%, rgba(249,115,22,.22), transparent 62%),
-            linear-gradient(135deg, rgba(14,165,233,.18), rgba(249,115,22,.18)),
-            #0b1220;
-          background-attachment: fixed, fixed, fixed, fixed, fixed;
-          filter: saturate(1.05);
-          pointer-events: none;
-        }
+       /* Full-page blue→orange haze */
+          .global-haze{
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background:
+              /* cyan glow TL */
+              radial-gradient(1100px 700px at 10% -10%, rgba(34,211,238,.34), transparent 60%),
+              /* blue glow TR */
+              radial-gradient(900px 600px at 95% 0%, rgba(14,165,233,.30), transparent 60%),
+              /* ORANGE glow center-right (moved up so it’s visible immediately) */
+              radial-gradient(1100px 700px at 65% 65%, rgba(249,115,22,.35), transparent 62%),
+              /* secondary warm glow bottom-left */
+              radial-gradient(900px 600px at 0% 100%, rgba(251,146,60,.28), transparent 60%),
+              /* overall wash in the button’s direction */
+              linear-gradient(135deg, rgba(14,165,233,.20), rgba(249,115,22,.24) 60%),
+              #0b1220;
+            background-attachment: fixed, fixed, fixed, fixed, fixed, fixed;
+            filter: saturate(1.1);
+          }
         .global-haze::after{
           content:"";
           position:absolute; inset:0;
