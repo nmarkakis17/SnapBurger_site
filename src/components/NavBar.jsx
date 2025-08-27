@@ -49,9 +49,20 @@ export default function NavBar(){
       `}</style>
 
       <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', gap:'1rem', padding:'0.75rem 1rem', maxWidth:1200, margin:'0 auto'}}>
-        <Link to="/" style={{display:'flex', alignItems:'center', gap:8, textDecoration:'none'}}>
-          <img src="/images/burger-logo.png", height: 200, width: 200, alt="SnapBurger logo"/>
-          <span style={{fontSize:'1.15rem', fontWeight:800, color:'#0f172a'}}>SnapBurger</span>
+      <Link to="/" style={{display:'flex', alignItems:'center', gap:10, textDecoration:'none'}}>
+          {/* your burger icon/logo */}
+          <img
+            src="/images/burger-logo.png"
+            alt="SnapBurger logo"
+            style={{ width:36, height:36, borderRadius:12 }}
+          />
+          {/* new duotone wordmark */}
+          <img
+            src="/images/snap-burger-duotone.png"
+            srcSet="/images/snap-burger-duotone.png 1x, /images/snap-burger-duotone@2x.png 2x"
+            alt="SnapBurger"
+            style={{ height:28, width:'auto', display:'block' }}
+          />
         </Link>
 
         <nav style={{display:'flex', gap:8, flexWrap:'wrap'}}>
