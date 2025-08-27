@@ -393,7 +393,7 @@ useEffect(() => {
                   aria-label="Theo-meter display"
                 >
                   {isCelebrating ? (
-                    <img className="theo-pop" src="/images/theo-wave.png" alt="Theo holding a SnapCoin" />
+                    <img className="theo-pop" src="/images/theo.png" alt="Theo holding a SnapCoin" />
                   ) : (
                     hype
                   )}
