@@ -78,6 +78,7 @@ export default function App(){
       <main className="page">
         <Outlet />
       </main>
+      <a href="/menu" className="mobile-cta">Order Now</a>
       {/* <Footer /> */}
     </>
   )
