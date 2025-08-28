@@ -13,7 +13,7 @@ export default function Merch(){
   return (
     <section style={{display:'grid', gap:12}}>
       <h2 style={{margin:'0 0 0.5rem 0'}}>Merch</h2>
-      <div style={{display:'grid', gap:12, gridTemplateColumns:'repeat(auto-fit, minmax(400px, 1fr))'}}>
+      <div style={{display:'grid', gap:12, gridTemplateColumns:'repeat(auto-fit, minmax(240px, 1fr))'}}>
         {items.map(it => (
           <div
             key={it.name}
