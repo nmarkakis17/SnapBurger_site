@@ -70,7 +70,16 @@ export default function App(){
   /* Theo-meter: slightly smaller */
   .pulse{ width:104px; height:104px }
 }
-
+@media (max-width: 640px){
+  .mobile-cta{
+    position:fixed; left:12px; right:12px;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    background: linear-gradient(135deg, #0ea5e9, #f97316);
+    color:#fff; text-align:center; font-weight:900;
+    padding:14px 16px; border-radius:999px; z-index:1000;
+    box-shadow:0 10px 30px rgba(14,165,233,.28)
+  }
+}
       </style>
 
       <div className="global-haze" aria-hidden />
