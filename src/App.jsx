@@ -36,53 +36,54 @@ export default function App(){
 
         /* All routed content sits above the haze */
         .page { position: relative; z-index: 1; }
-      `}
-      @media (max-width: 640px){
-  /* Nav: keep pills readable and scrollable */
-  nav{ display:flex; gap:8px; overflow-x:auto; padding:0 8px; -webkit-overflow-scrolling:touch }
-  .navlink{ padding:10px 12px; font-weight:800; min-width:max-content }
 
-  /* Hero sizing */
-  .hero{ padding:16px }
-  .logo{ width:min(160px, 60vw) }
-  .title{ font-size: clamp(24px, 7vw, 36px) }
-  .subtitle{ font-size: clamp(14px, 4vw, 18px) }
+        /* ===== Responsive ===== */
+        @media (max-width: 640px){
+          /* Nav: keep pills readable and scrollable */
+          nav{ display:flex; gap:8px; overflow-x:auto; padding:0 8px; -webkit-overflow-scrolling:touch }
+          .navlink{ padding:10px 12px; font-weight:800; min-width:max-content }
 
-  /* CTAs full width on phone */
-  .ctaRow .btn{ width:100%; justify-content:center }
+          /* Hero sizing */
+          .hero{ padding:16px }
+          .logo{ width:min(160px, 60vw) }
+          .title{ font-size: clamp(24px, 7vw, 36px) }
+          .subtitle{ font-size: clamp(14px, 4vw, 18px) }
 
-  /* Stats stack */
-  .stats{ grid-template-columns: 1fr }
+          /* CTAs full width on phone */
+          .ctaRow .btn{ width:100%; justify-content:center }
 
-  /* How it Works: 4 across becomes horizontal scroll row */
-  .cards{ 
-    grid-auto-flow: column;
-    grid-template-columns: repeat(4, 80vw);
-    overflow-x:auto; scroll-snap-type:x proximity; gap:12px; padding-bottom:6px
-  }
-  .card{ scroll-snap-align:center }
+          /* Stats stack */
+          .stats{ grid-template-columns: 1fr }
 
-  /* Step images + gallery sizes */
-  .step-img{ height: clamp(140px, 45vw, 220px) }
-  .gallery{ grid-template-columns: 1fr }
-  .gallery img{ height: clamp(200px, 60vw, 320px) }
+          /* How it Works: 4 across becomes horizontal scroll row */
+          .cards{ 
+            grid-auto-flow: column;
+            grid-template-columns: repeat(4, 80vw);
+            overflow-x:auto; scroll-snap-type:x proximity; gap:12px; padding-bottom:6px
+          }
+          .card{ scroll-snap-align:center }
 
-  /* Theo-meter: slightly smaller */
-  .pulse{ width:104px; height:104px }
-}
-@media (max-width: 640px){
-  .mobile-cta{
-    position:fixed; left:12px; right:12px;
-    bottom: calc(12px + env(safe-area-inset-bottom));
-    background: linear-gradient(135deg, #0ea5e9, #f97316);
-    color:#fff; text-align:center; font-weight:900;
-    padding:14px 16px; border-radius:999px; z-index:1000;
-    box-shadow:0 10px 30px rgba(14,165,233,.28)
-  }
-}
-      </style>
+          /* Step images + gallery sizes */
+          .step-img{ height: clamp(140px, 45vw, 220px) }
+          .gallery{ grid-template-columns: 1fr }
+          .gallery img{ height: clamp(200px, 60vw, 320px) }
 
-      <div className="global-haze" aria-hidden />
+          /* Theo-meter: slightly smaller */
+          .pulse{ width:104px; height:104px }
+
+          /* Mobile floating CTA */
+          .mobile-cta{
+            position:fixed; left:12px; right:12px;
+            bottom: calc(12px + env(safe-area-inset-bottom));
+            background: linear-gradient(135deg, #0ea5e9, #f97316);
+            color:#fff; text-align:center; font-weight:900;
+            padding:14px 16px; border-radius:999px; z-index:1000;
+            box-shadow:0 10px 30px rgba(14,165,233,.28)
+          }
+        }
+      `}</style>
+
+      <div className="global-haze" aria-hidden="true" />
       <NavBar />
       <main className="page">
         <Outlet />
