@@ -36,7 +36,10 @@ export default function App(){
 
         /* All routed content sits above the haze */
         .page { position: relative; z-index: 1; }
-
+        
+        /* Hide floating CTA by default (desktop) */
+        .mobile-cta{ display:none; }
+        
         /* ===== Responsive ===== */
         @media (max-width: 640px){
           /* Nav: keep pills readable and scrollable */
