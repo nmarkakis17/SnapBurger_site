@@ -46,6 +46,29 @@ export default function NavBar(){
           outline: 3px solid var(--blue);
           outline-offset: 2px;
         }
+        .social-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-links span {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-right: 4px;
+}
+
+.social-links a img {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.2s ease, filter 0.3s ease;
+}
+
+/* Hover effect: gradient overlay with SnapBurger colors */
+.social-links a:hover img {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 6px var(--blue)) drop-shadow(0 0 10px var(--orange));
+}
       `}</style>
 
       <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', gap:'1rem', padding:'0.75rem 1rem', maxWidth:1200, margin:'0 auto'}}>
@@ -74,6 +97,21 @@ export default function NavBar(){
           <NavLink to="/theo" className={({isActive}) => 'navlink' + (isActive ? ' active' : '')}>Meet Theo</NavLink>
           <NavLink to="/about" className={({isActive}) => 'navlink' + (isActive ? ' active' : '')}>About</NavLink>
         </nav>
+              <div className="social-links">
+        <span>Follow Us:</span>
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          <img src="/images/facebook.svg" alt="Facebook" />
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+          <img src="/images/instagram.svg" alt="Instagram" />
+        </a>
+        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer">
+          <img src="/images/tiktok.svg" alt="TikTok" />
+        </a>
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+          <img src="/images/youtube.svg" alt="YouTube" />
+        </a>
+      </div>
       </div>
     </header>
   )
