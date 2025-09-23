@@ -46,23 +46,22 @@ export default function NavBar(){
           outline: 3px solid var(--blue);
           outline-offset: 2px;
         }
-@media (max-width: 640px) {
-  nav {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .social-links {
-    width: 100%;
-    justify-content: center;
-    margin-top: 8px;
-  }
-
-  .social-links span {
-    display: none; /* hides 'Follow Us' word on very small screens if needed */
-  }
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
+
+.social-links span {
+  font-weight: 700;
+  font-size: 0.9rem;
+  background: linear-gradient(135deg, var(--blue), var(--orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* for Firefox */
+  text-fill-color: transparent;
+}
+
 .social-links a img {
   width: 22px;
   height: 22px;
