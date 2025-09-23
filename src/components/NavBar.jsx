@@ -55,7 +55,11 @@ export default function NavBar(){
 .social-links span {
   font-weight: 700;
   font-size: 0.9rem;
-  margin-right: 4px;
+  background: linear-gradient(135deg, var(--blue), var(--orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* for Firefox */
+  text-fill-color: transparent;
 }
 
 .social-links a img {
