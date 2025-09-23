@@ -46,8 +46,7 @@ export default function NavBar(){
           outline: 3px solid var(--blue);
           outline-offset: 2px;
         }
-
-        @media (max-width: 640px) {
+@media (max-width: 640px) {
   nav {
     flex-wrap: nowrap;
     overflow-x: auto;
