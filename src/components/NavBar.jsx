@@ -75,7 +75,20 @@ export default function NavBar(){
           z-index: 50;
         }
         .mobile-inner{ padding:10px 12px 16px; display:grid; gap:10px }
-        .mobile-links{ display:grid; gap:8px }
+        <div className="mobile-links">
+  <NavLink to="/" end className={({isActive}) => 'navlink' + (isActive ? ' active' : '')} onClick={()=>setOpen(false)}>Home</NavLink>
+  <NavLink to="/menu" className={({isActive}) => 'navlink' + (isActive ? ' active' : '')} onClick={()=>setOpen(false)}>Menu</NavLink>
+
+  {/* REPLACE /rewards with the two new routes */}
+  <NavLink to="/snapcoins" className={({isActive}) => 'navlink' + (isActive ? ' active' : '')} onClick={()=>setOpen(false)}>SnapCoins</NavLink>
+  <NavLink to="/snapcharms" className={({isActive}) => 'navlink' + (isActive ? ' active' : '')} onClick={()=>setOpen(false)}>SnapCharms</NavLink>
+
+  <NavLink to="/merch" className={({isActive}) => 'navlink' + (isActive ? ' active' : '')} onClick={()=>setOpen(false)}>Merch</NavLink>
+  <NavLink to="/snapboard" className={({isActive}) => 'navlink' + (isActive ? ' active' : '')} onClick={()=>setOpen(false)}>SnapBoard</NavLink>
+  <NavLink to="/theo" className={({isActive}) => 'navlink' + (isActive ? ' active' : '')} onClick={()=>setOpen(false)}>Meet Theo</NavLink>
+  <NavLink to="/about" className={({isActive}) => 'navlink' + (isActive ? ' active' : '')} onClick={()=>setOpen(false)}>About</NavLink>
+</div>
+
         .mobile-socials{ display:flex; align-items:center; justify-content:center; gap:14px; padding-top:6px }
 
         /* responsive rules */
@@ -98,17 +111,20 @@ export default function NavBar(){
             alt="SnapBurger" style={{ height:28, width:'auto', display:'block' }}
           />
         </Link>
+        {/* Desktop navs */}
+<nav className="links">
+  <NavLink to="/" end className={({isActive}) => 'navlink' + (isActive ? ' active' : '')}>Home</NavLink>
+  <NavLink to="/menu" className={({isActive}) => 'navlink' + (isActive ? ' active' : '')}>Menu</NavLink>
 
-        {/* Desktop nav */}
-        <nav className="links">
-          <NavLink to="/" end className={({isActive}) => 'navlink' + (isActive ? ' active' : '')}>Home</NavLink>
-          <NavLink to="/menu" className={({isActive}) => 'navlink' + (isActive ? ' active' : '')}>Menu</NavLink>
-          <NavLink to="/rewards" className={({isActive}) => 'navlink' + (isActive ? ' active' : '')}>SnapCoins</NavLink>
-          <NavLink to="/merch" className={({isActive}) => 'navlink' + (isActive ? ' active' : '')}>Merch</NavLink>
-          <NavLink to="/snapboard" className={({isActive}) => 'navlink' + (isActive ? ' active' : '')}>SnapBoard</NavLink>
-          <NavLink to="/theo" className={({isActive}) => 'navlink' + (isActive ? ' active' : '')}>Meet Theo</NavLink>
-          <NavLink to="/about" className={({isActive}) => 'navlink' + (isActive ? ' active' : '')}>About</NavLink>
-        </nav>
+  {/* REPLACE this: <NavLink to="/rewards" ...>SnapCoins</NavLink> */}
+  <NavLink to="/snapcoins" className={({isActive}) => 'navlink' + (isActive ? ' active' : '')}>SnapCoins</NavLink>
+  <NavLink to="/snapcharms" className={({isActive}) => 'navlink' + (isActive ? ' active' : '')}>SnapCharms</NavLink>
+
+  <NavLink to="/merch" className={({isActive}) => 'navlink' + (isActive ? ' active' : '')}>Merch</NavLink>
+  <NavLink to="/snapboard" className={({isActive}) => 'navlink' + (isActive ? ' active' : '')}>SnapBoard</NavLink>
+  <NavLink to="/theo" className={({isActive}) => 'navlink' + (isActive ? ' active' : '')}>Meet Theo</NavLink>
+  <NavLink to="/about" className={({isActive}) => 'navlink' + (isActive ? ' active' : '')}>About</NavLink>
+</nav>
 
         {/* Desktop socials */}
         <div className="social-links">
